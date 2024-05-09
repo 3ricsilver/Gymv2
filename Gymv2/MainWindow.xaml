@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gymv2"
         mc:Ignorable="d"
-        Title="LoginAdmin" Icon="/Aokana.ico" WindowStartupLocation="CenterScreen" Background="#FF5C5C5C" MinWidth="300" MaxWidth="300" MinHeight="100" MaxHeight="100">
+        Title="LoginAdmin" Icon="/Aokana.ico" WindowStartupLocation="CenterScreen" Background="#FF5C5C5C" MinWidth="300" MaxWidth="300" MinHeight="200" MaxHeight="200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -15,12 +15,12 @@
         </Grid.RowDefinitions>
 
         <Label Content="Username:" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="txtUsername" Margin="89,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="191"/>
+        <TextBox x:Name="txtUsername" Text="{Binding Login}" Margin="89,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="191"/>
 
         <Label Content="Password:" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <PasswordBox x:Name="txtPassword" Grid.Row="1" Margin="89,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="191"/>
+        <PasswordBox x:Name="txtPassword" Grid.Row="1" Margin="89,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="191"  PasswordChanged="txtPassword_PasswordChanged"/>
 
-        <Button Content="Login" Grid.Row="2" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button Content="Login" Grid.Row="2" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnAfficherUtilisateur_Click"/>
     </Grid>
 </Window>
 
