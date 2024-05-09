@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gymv2", "Gymv2\Gymv2.csproj", "{2708A12C-42BB-41E6-AC29-C32B0A3F3682}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{5670FE2A-4606-440A-BC5D-9BFE27631391}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2708A12C-42BB-41E6-AC29-C32B0A3F3682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2708A12C-42BB-41E6-AC29-C32B0A3F3682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2708A12C-42BB-41E6-AC29-C32B0A3F3682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2708A12C-42BB-41E6-AC29-C32B0A3F3682}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9A63171-937D-4D80-9667-E055E390CF0E}
+	EndGlobalSection
+EndGlobal
