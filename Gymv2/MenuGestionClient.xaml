@@ -1,0 +1,29 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gymv2"
+        xmlns:GymClient="clr-namespace:GymClient" x:Class="Gymv2.MenuGestionClient"
+        mc:Ignorable="d"
+        Title="Gestion des clients" Height="450" Width="800" Icon="/planetarian_HD.ico">
+    <Window.DataContext>
+        <GymClient:Gym/>
+    </Window.DataContext>
+    <Grid>
+        <ListView HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="207" Width="780" ItemsSource="{Binding Clients}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Nom}" />
+                    <GridViewColumn Header="Prénom" DisplayMemberBinding="{Binding Prenom}" />
+                    <GridViewColumn Header="Date de naissance" DisplayMemberBinding="{Binding DateNaissance}" />
+                    <GridViewColumn Header="Photo" DisplayMemberBinding="{Binding PhotoPath}" />
+                    <GridViewColumn Header="Abonnement" DisplayMemberBinding="{Binding Abonnement}"  />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Ajouter un client" HorizontalAlignment="Left" Margin="131,282,0,0" VerticalAlignment="Top" Click="Ajouter_Click"/>
+        <Button Content="Supprimer un client" HorizontalAlignment="Left" Margin="369,277,0,0" VerticalAlignment="Top"/>
+        <Button Content="Sauvegarder en JSON" HorizontalAlignment="Right" Margin="0,277,76,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

@@ -77,7 +77,10 @@ namespace Gymv2
                         if (parts.Length == 2 && parts[0] == username && parts[1] == password)
                         {
                             MessageBox.Show("Connexion réussie !");
-                            //to do instancier le interface de gestion
+                            // Instancie l'interface de gestion des clients
+                            MenuGestionClient gestionClient = new MenuGestionClient();
+                            gestionClient.Show();
+                            this.Close();
                             return;
                         }
                     }

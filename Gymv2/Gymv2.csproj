@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <None Remove="Aokana.ico" />
+    <None Remove="planetarian_HD.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Aokana.ico" />
+    <Resource Include="planetarian_HD.ico" />
   </ItemGroup>
 
 </Project>
