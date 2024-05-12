@@ -31,6 +31,7 @@ namespace Gymv2
         public MenuGestionClient()
         {
             InitializeComponent();
+            //test
             Gym.AjouterClient(new Client { Nom = "erio", Prenom = "helpme", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "C:\\Users\\eric3\\Downloads\\@julmre_-profile(1).jpeg" });
             Gym.AjouterClient(new Client { Nom = "fugo", Prenom = "helpme", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "C:\\Users\\eric3\\OneDrive\\Images\\LASM-4144.jpg" });
 
@@ -74,6 +75,7 @@ namespace Gymv2
             MenuAjouter.ShowDialog(); // Utilisation de ShowDialog pour attendre que la fenêtre Ajouter se ferme
                                       // Récupérer le client ajouté depuis l'interface Ajouter
             Gym.AjouterClient(MenuAjouter.ClientAjoute);
+            MessageBox.Show(MenuAjouter.ClientAjoute.Nom + " " + MenuAjouter.ClientAjoute.Prenom + " " + MenuAjouter.ClientAjoute.DateNaissance + " " + MenuAjouter.ClientAjoute.PhotoPath);
         }
 
         private void Test(object sender, RoutedEventArgs e)

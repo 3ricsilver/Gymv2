@@ -23,7 +23,7 @@
             <StackPanel Orientation="Horizontal">
                 <Label Content="Chemin de la photo" HorizontalAlignment="Left" Margin="10" />
                 <TextBox x:Name="PhotoPathTextBox" HorizontalAlignment="Center" Margin="10" Width="139" />
-                <Button Content="Button" Height="27" Width="99"/>
+                <Button Content="Button" Height="27" Width="99" Click="Parcourir_Click"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Date de début" HorizontalAlignment="Left" Margin="10" />

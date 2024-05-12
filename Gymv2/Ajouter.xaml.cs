@@ -33,9 +33,6 @@ namespace Gymv2
 
         public Client ClientAjoute { get; private set; }
 
-
-
-
         public Ajouter()
         {
             InitializeComponent();
@@ -43,7 +40,6 @@ namespace Gymv2
 
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
-            // Get the values entered by the user
             nom = NomTextBox.Text;
             prenom = PrenomTextBox.Text;
             dateNaissance = DateNaissanceDatePicker.SelectedDate ?? DateTime.MinValue;
@@ -52,21 +48,16 @@ namespace Gymv2
             dateFin = DateFinDatePicker.SelectedDate ?? DateTime.MinValue;
             prix = int.Parse(PrixTextBox.Text);
 
-            // Create a new instance of the Client class
+
+
             Client client = new Client(nom, prenom, dateNaissance, photoPath, new Abonnement(dateDebut, dateFin, prix));
 
-
-            // Assign the newly created client to the property ClientAjoute
             ClientAjoute = client;
-            //fait une window box qui affiche toutes les informations de client
             MessageBox.Show(ClientAjoute.ToString());
-
-
 
             // Close the window
             this.Close();
         }
-
 
         private void Parcourir_Click(object sender, RoutedEventArgs e)
         {
@@ -74,9 +65,9 @@ namespace Gymv2
             openFileDialog.Filter = "Fichiers image (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png";
             if (openFileDialog.ShowDialog() == true)
             {
-                PhotoPathTextBox.Text = openFileDialog.FileName;
-                //rajoute des " " pour que le chemin soit valide
-                PhotoPathTextBox.Text = "\"" + PhotoPathTextBox.Text + "\"";
+                // pour que ca affiche bien dans le format image qu'o
+                PhotoPathTextBox.Text = "\"" + openFileDialog.FileName.Replace("\\", "\\\\") + "\"";
+
             }
         }
     }
