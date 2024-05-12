@@ -21,16 +21,13 @@
             Width="780" 
             ItemsSource="{Binding Gym.Clients, Mode=TwoWay}"
             AutoGenerateColumns="False">
-            <!-- Définissez manuellement les colonnes ici -->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" />
                 <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" />
                 <DataGridTextColumn Header="Date de naissance" Binding="{Binding DateNaissance}" />
-                <!-- Use DataGridTemplateColumn for displaying images -->
                 <DataGridTemplateColumn Header="Photo">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <!-- Bind the source of the Image control to the PhotoPath -->
                             <Image Source="{Binding PhotoPath}" Width="50" Height="50"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

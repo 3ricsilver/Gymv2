@@ -32,20 +32,18 @@ namespace Gymv2
         {
             InitializeComponent();
             //test
-            Gym.AjouterClient(new Client { Nom = "erio", Prenom = "helpme", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "C:\\Users\\eric3\\Downloads\\@julmre_-profile(1).jpeg" });
-            Gym.AjouterClient(new Client { Nom = "fugo", Prenom = "helpme", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "C:\\Users\\eric3\\OneDrive\\Images\\LASM-4144.jpg" });
+            Gym.AjouterClient(new Client { Nom = "erio", Prenom = "tru", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "C:\\Users\\eric3\\Downloads\\@julmre_-profile(1).jpeg" });
+            Gym.AjouterClient(new Client { Nom = "fugo", Prenom = "ong", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "C:\\Users\\eric3\\OneDrive\\Images\\LASM-4144.jpg" });
 
             Gym.AjouterClient(new Client { Nom = "eric", Prenom = "helpme", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "C:\\Users\\eric3\\Downloads\\@julmre_-profile(1).jpeg" });
             Gym.AjouterClient(new Client { Nom = "figo", Prenom = "helpme", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "C:\\Users\\eric3\\OneDrive\\Images\\LASM-4144.jpg" });
 
 
-            // Définissez le contexte de données du DataContext de la fenêtre sur cette instance de Gym
             DataContext = this;
         }
 
         private void Sup_Click(object sender, RoutedEventArgs e)
         {
-            // Créer une boîte de dialogue pour demander le nombre à supprimer
             int nombreASupprimer = 0;
             bool isNumeric = false;
             while (!isNumeric)
@@ -53,7 +51,7 @@ namespace Gymv2
                 string input = Microsoft.VisualBasic.Interaction.InputBox("Entrez le nombre de clients à supprimer :", "Supprimer des clients", "0");
                 if (input == "")
                 {
-                    return; // Sortir de la méthode si l'utilisateur a appuyé sur Annuler
+                    return;
                 }
 
                 isNumeric = int.TryParse(input, out nombreASupprimer);
@@ -61,7 +59,6 @@ namespace Gymv2
                 {
                     MessageBox.Show("Veuillez entrer un nombre valide.");
                 }
-                // Vérifier si l'utilisateur a appuyé sur Annuler
 
             }
 
@@ -72,10 +69,9 @@ namespace Gymv2
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
             Ajouter MenuAjouter = new Ajouter();
-            MenuAjouter.ShowDialog(); // Utilisation de ShowDialog pour attendre que la fenêtre Ajouter se ferme
-                                      // Récupérer le client ajouté depuis l'interface Ajouter
+            MenuAjouter.ShowDialog();
             Gym.AjouterClient(MenuAjouter.ClientAjoute);
-            MessageBox.Show(MenuAjouter.ClientAjoute.Nom + " " + MenuAjouter.ClientAjoute.Prenom + " " + MenuAjouter.ClientAjoute.DateNaissance + " " + MenuAjouter.ClientAjoute.PhotoPath);
+            MessageBox.Show(MenuAjouter.ClientAjoute.Nom + " " + MenuAjouter.ClientAjoute.Prenom + " " + MenuAjouter.ClientAjoute.DateNaissance + " " + MenuAjouter.ClientAjoute.PhotoPath);//debug
         }
 
         private void Test(object sender, RoutedEventArgs e)
@@ -83,7 +79,7 @@ namespace Gymv2
             //affiche tous les clients
             foreach (Client client in Gym.Clients)
             {
-                MessageBox.Show(client.Nom + " " + client.Prenom + " " + client.DateNaissance + " " + client.PhotoPath);
+                MessageBox.Show(client.Nom + " " + client.Prenom + " " + client.DateNaissance + " " + client.PhotoPath);//debug
             }
         }
     }
