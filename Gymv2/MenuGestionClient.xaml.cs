@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using ClientGestion;
 using GymClient;
 using AbonnementClient;
+using System.ComponentModel;
 
 namespace Gymv2
 {
@@ -23,36 +24,28 @@ namespace Gymv2
     /// </summary>
     public partial class MenuGestionClient : Window
     {
-        private Gym gym;
+        public Gym Gym { get; set; } = new Gym();
+
         public MenuGestionClient()
         {
             InitializeComponent();
-            gym = new Gym();
 
-            DataContext = gym;// Définir le DataContext sur l'instance de Gym pour que les contrôles de liaison de données fonctionnent
+            // Ajoutez quelques clients à la liste
+            Gym.AjouterClient(new Client { Nom = "Nom1", Prenom = "Prenom1", DateNaissance = DateTime.Now.AddYears(-30) });
+            Gym.AjouterClient(new Client { Nom = "Nom2", Prenom = "Prenom2", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "\"C:\\Users\\eric3\\Downloads\\@julmre_-profile(1).jpeg\"" });
+
+            // Définissez le contexte de données du DataContext de la fenêtre sur cette instance de Gym
+            DataContext = this;
         }
-
 
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
             Client client = new Client();
-
-            // test
-            client.Nom = "John";
-            client.Prenom = "Doe";
-            client.DateNaissance = new DateTime(1990, 1, 1);
-            client.PhotoPath = "chemin/vers/photo.jpg";
-            client.Abonnement = new Abonnement();
-
-            gym.AjouterClient(client);
-        }
-
-
-        private void Supprimer_Click(object sender, RoutedEventArgs e)
-        {
-            //a faire
+            Gym.AjouterClient(client);
         }
     }
+
+
 
 
 }
