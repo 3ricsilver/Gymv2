@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace Gymv2
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow.xam
     /// </summary>
     public partial class MainWindow : Window
     {
