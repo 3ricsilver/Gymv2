@@ -17,22 +17,42 @@
             HorizontalAlignment="Center" 
             Margin="0,10,0,0" 
             VerticalAlignment="Top" 
-            Height="207" 
+            Height="262" 
             Width="780" 
-            ItemsSource="{Binding Gym.Clients}"
+            ItemsSource="{Binding Gym.Clients, Mode=TwoWay}"
             AutoGenerateColumns="False">
             <!-- Définissez manuellement les colonnes ici -->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" />
                 <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" />
                 <DataGridTextColumn Header="Date de naissance" Binding="{Binding DateNaissance}" />
-                <DataGridTextColumn Header="Photo" Binding="{Binding PhotoPath}" />
-                <DataGridTextColumn Header="Abonnement" Binding="{Binding Abonnement}" />
+                <!-- Use DataGridTemplateColumn for displaying images -->
+                <DataGridTemplateColumn Header="Photo">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <!-- Bind the source of the Image control to the PhotoPath -->
+                            <Image Source="{Binding PhotoPath}" Width="50" Height="50"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Abonnement">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Abonnement.DateDebut}" Margin="2"/>
+                                <TextBlock Text="{Binding Abonnement.DateFin}" Margin="2"/>
+                                <TextBlock Text="{Binding Abonnement.Prix}" Margin="2"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
+
         </DataGrid>
 
         <Button Content="Ajouter un client" HorizontalAlignment="Left" Margin="131,282,0,0" VerticalAlignment="Top" Click="Ajouter_Click"/>
-        <Button Content="Supprimer un client" HorizontalAlignment="Left" Margin="369,277,0,0" VerticalAlignment="Top"/>
-        <Button Content="Sauvegarder en JSON" HorizontalAlignment="Right" Margin="0,277,76,0" VerticalAlignment="Top"/>
+        <Button Content="Supprimer un client" HorizontalAlignment="Left" Margin="369,277,0,0" VerticalAlignment="Top" Click="Sup_Click"/>
+        <Button Content="Sauvegarder en JSON" HorizontalAlignment="Right" Margin="0,277,76,0" VerticalAlignment="Top" Click="Test"/>
     </Grid>
 </Window>

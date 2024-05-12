@@ -10,7 +10,7 @@ namespace AbonnementClient
     {
         private DateTime _dateDebut;
         private DateTime _dateFin;
-        private decimal _prix;
+        private int _prix;
 
         public DateTime DateDebut
         {
@@ -24,10 +24,23 @@ namespace AbonnementClient
             set { _dateFin = value; }
         }
 
-        public decimal Prix
+        public int Prix
         {
             get { return _prix; }
             set { _prix = value; }
+        }
+
+        public Abonnement(DateTime dateDebut, DateTime dateFin, int prix)
+        {
+            DateDebut = dateDebut;
+            DateFin = dateFin;
+            Prix = prix;
+        }
+
+        //to string
+        public override string ToString()
+        {
+            return $"Date de début: {DateDebut}\nDate de fin: {DateFin}\nPrix: {Prix}";
         }
     }
 }

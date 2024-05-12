@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using AbonnementClient;
 using ClientGestion;
+using System.ComponentModel;
+
 
 namespace GymClient
 {
     public class Gym
     {
-        public List<Client> _gymClients;
+        private List<Client> _gymClients;
 
         public List<Client> Clients
         {
@@ -33,15 +35,12 @@ namespace GymClient
             _gymClients.Add(client);
         }
 
-        public void SupprimerClient(Client client)
+        public void SupprimerClient(int index)
         {
-            _gymClients.Remove(client);
-        }
-
-        public void ModifierClient(Client client)
-        {
-            Client clientAModifier = _gymClients.Find(c => c.Nom == client.Nom && c.Prenom == client.Prenom);
-            clientAModifier = client;
+            if (index >= 0 && index < _gymClients.Count)
+            {
+                _gymClients.RemoveAt(index);
+            }
         }
     }
 }
