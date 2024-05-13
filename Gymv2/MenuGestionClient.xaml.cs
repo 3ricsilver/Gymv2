@@ -18,6 +18,11 @@ using AbonnementClient;
 using System.ComponentModel;
 using System.Windows.Media.Animation;
 
+using System.Text.Json;
+using System.IO;
+
+
+
 namespace Gymv2
 {
     /// <summary>
@@ -70,8 +75,15 @@ namespace Gymv2
         {
             Ajouter MenuAjouter = new Ajouter();
             MenuAjouter.ShowDialog();
-            Gym.AjouterClient(MenuAjouter.ClientAjoute);
-            MessageBox.Show(MenuAjouter.ClientAjoute.Nom + " " + MenuAjouter.ClientAjoute.Prenom + " " + MenuAjouter.ClientAjoute.DateNaissance + " " + MenuAjouter.ClientAjoute.PhotoPath);//debug
+            /*            Gym.AjouterClient(MenuAjouter.ClientAjoute);*/
+            //MessageBox.Show(MenuAjouter.ClientAjoute.Nom + " " + MenuAjouter.ClientAjoute.Prenom + " " + MenuAjouter.ClientAjoute.DateNaissance + " " + MenuAjouter.ClientAjoute.PhotoPath);//debug
+            if (MenuAjouter.ClientAjoute != null)
+            {
+                Gym.AjouterClient(MenuAjouter.ClientAjoute);
+                MessageBox.Show(MenuAjouter.ClientAjoute.Nom + " " + MenuAjouter.ClientAjoute.Prenom + " " + MenuAjouter.ClientAjoute.DateNaissance + " " + MenuAjouter.ClientAjoute.PhotoPath);
+                Gym.AjouterClient(new Client { Nom = "erio", Prenom = "tru", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "C:\\Users\\eric3\\Downloads\\@julmre_-profile(1).jpeg" });
+
+            }
         }
 
         private void Test(object sender, RoutedEventArgs e)
@@ -82,6 +94,50 @@ namespace Gymv2
                 MessageBox.Show(client.Nom + " " + client.Prenom + " " + client.DateNaissance + " " + client.PhotoPath);//debug
             }
         }
+
+        private void SauvegarderJson(object sender, RoutedEventArgs e)
+        {
+
+            string jsonString = JsonSerializer.Serialize(Gym.Clients);
+
+
+            string filePath = "clients.json";
+
+
+            File.WriteAllText(filePath, jsonString);
+
+
+            MessageBox.Show("Liste des clients sauvegardée avec succès dans le fichier clients.json.");
+        }
+
+        private void ChargerJson(object sender, RoutedEventArgs e)
+        {
+            string filePath = "clients.json";
+
+            if (File.Exists(filePath))
+            {
+                string jsonString = File.ReadAllText(filePath);
+                List<Client> clients = JsonSerializer.Deserialize<List<Client>>(jsonString);
+
+                foreach (Client client in clients)
+                {
+                    Gym.AjouterClient(client);
+                }
+
+                MessageBox.Show("Données chargées avec succès à partir du fichier clients.json.");
+            }
+            else
+            {
+                MessageBox.Show("Le fichier clients.json n'existe pas.");
+            }
+        }
+
+        private void CleanListe(object sender, RoutedEventArgs e)
+        {
+            Gym.Clients.Clear();
+            MessageBox.Show("Liste des clients nettoyée avec succès.");
+        }
+
     }
 
 

@@ -51,5 +51,8 @@
         <Button Content="Ajouter un client" HorizontalAlignment="Left" Margin="131,282,0,0" VerticalAlignment="Top" Click="Ajouter_Click"/>
         <Button Content="Supprimer un client" HorizontalAlignment="Left" Margin="369,277,0,0" VerticalAlignment="Top" Click="Sup_Click"/>
         <Button Content="Sauvegarder en JSON pour l'instant je l'utilise juste pour voir le contenu de la liste pour debug" HorizontalAlignment="Right" Margin="0,352,104,0" VerticalAlignment="Top" Click="Test"/>
+        <Button Content="Sauvegarder en JSON" HorizontalAlignment="Right" Margin="0,277,104,0" VerticalAlignment="Top" Click="SauvegarderJson"/>
+        <Button Content="Charger un fichier JSON" HorizontalAlignment="Left" Margin="578,312,0,0" VerticalAlignment="Top" Click="ChargerJson"/>
+        <Button Content="Nettoyer toute la liste" HorizontalAlignment="Left" Margin="117,327,0,0" VerticalAlignment="Top" Click="CleanListe"/>
     </Grid>
 </Window>

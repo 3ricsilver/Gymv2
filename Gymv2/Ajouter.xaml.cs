@@ -65,9 +65,8 @@ namespace Gymv2
             openFileDialog.Filter = "Fichiers image (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png";
             if (openFileDialog.ShowDialog() == true)
             {
-                // pour que ca affiche bien dans le format image qu'o
-                PhotoPathTextBox.Text = "\"" + openFileDialog.FileName.Replace("\\", "\\\\") + "\"";
-
+                //je veux que le fichier soit de ce format comme ca "C:\\Users\\eric3\\Downloads\\@julmre_-profile(1).jpeg"
+                PhotoPathTextBox.Text = openFileDialog.FileName;
             }
         }
     }
