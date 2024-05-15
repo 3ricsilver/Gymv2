@@ -81,7 +81,7 @@ namespace Gymv2
             {
                 Gym.AjouterClient(MenuAjouter.ClientAjoute);
                 MessageBox.Show(MenuAjouter.ClientAjoute.Nom + " " + MenuAjouter.ClientAjoute.Prenom + " " + MenuAjouter.ClientAjoute.DateNaissance + " " + MenuAjouter.ClientAjoute.PhotoPath);
-                Gym.AjouterClient(new Client { Nom = "erio", Prenom = "tru", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "C:\\Users\\eric3\\Downloads\\@julmre_-profile(1).jpeg" });
+                //Gym.AjouterClient(new Client { Nom = "erio", Prenom = "tru", DateNaissance = DateTime.Now.AddYears(-25), PhotoPath = "C:\\Users\\eric3\\Downloads\\@julmre_-profile(1).jpeg" });
 
             }
         }
